@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i|Roboto" rel="stylesheet">
+		<title>mysite</title>
+		<style type="text/css">
+		<meta charset="UTF-8"></meta>
+		body{
+			background-color: #fff;
+			margin:auto;  
+		}	
+			.box{
+				min-width: 1060px;
+
+			}
+			.public-header{
+				width: 1060px;
+				height: 160px;
+				background: #fff;
+
+			}
+			p.header-col {
+				position: absolute;
+				left:150px;
+				top:-20px;
+				margin-top: 0px;
+  				color: gray;
+  				line-height: 1.6;
+  				font-family:sans-serif;
+				font-size: 10px;
+			}
+
+			ul.navigation{ 
+				position: absolute;
+				top: 110px;
+				text-align: center;
+				font-family:sans-serif;
+				font-size: 14px;
+				color: black;
+				font-weight: normal;
+				z-index: 0;
+				height: 38px;
+			}
+			li.item{
+				float: left;
+  				margin-top: 5px;
+  				margin-left: 130px;
+  				list-style: none;
+			}
+			ul.navigation a {
+  				color: #3b3b3b;
+  				text-decoration: none
+			}
+			/*ul a:hover {
+  				text-decoration: underline;
+  				color: red;
+			}*/
+			.public-container {
+  				position: relative;
+  				margin: 0 auto;
+  				width: 1060px;
+  				height: 160px;
+			}
+			.fixed-picture-top{
+				position: fixed;
+				/*clip:rect(0px 854px 650px 207px);*/
+				margin: 0 auto; /*DIV 全局居中*/
+				text-align: center; /*DIV 里内容居中*/
+				top: 120px;
+				z-index: -5;
+				overflow: hidden;
+			}
+			.menu-lefta{
+				position: absolute;
+				left: 65px;
+				top: 1000px;
+				background: #fff;
+			}
+			.menu-leftb{
+				position: absolute;
+				left: 65px;
+				top: 1550px;
+				background: #fff;
+			}
+			p.menu-word-title{
+				position: absolute;
+				font-family:'Libre Baskerville',serif;
+				font-style: italic;
+				font-size: 30px;
+				font-weight: 580;
+				left:0px;
+				top: 265px;
+  				width: 500px;
+  				color: #bc9b5d;
+			}
+			p.menu-word-content{
+				position: absolute;
+				left:0px;
+				top: 380px;
+  				width: 300px;
+  				height: 14px;
+  				color: gray;
+  				line-height: 20px;
+  				font-family:sans-serif;
+				font-size: 14px;
+			}
+			a.link{
+				position: absolute;
+				left:0px;
+				top: 480px;
+				color: black;
+  				font-family:sans-serif;
+				font-size: 14px;
+				text-decoration: none;
+    			transition: color .6s ease;
+			}
+			a.linkb{
+				position: absolute;
+				left:0px;
+				top: -120px;
+				color: black;
+  				font-family:sans-serif;
+				font-size: 14px;
+				text-decoration: none;
+    			transition: color .6s ease;
+			}
+			a.linkc{
+				position: absolute;
+				left:120px;
+				top: 60px;
+				color: #605e5e;
+  				font-family:sans-serif;
+				font-style: italic;
+				font-size: 28px;
+				text-decoration: none;
+    			transition: color .6s ease;
+			}
+			a:hover{
+				color:#d1d1d1;
+			}
+			.menu-righta{
+				position: absolute;
+				left: 550px;
+				top: 1280px;
+				height: 110px;
+				background: #fff;
+			}
+			.menu-rightb{
+				position: absolute;
+				left: 550px;
+				top: 1620px;
+				height: 110px;
+				background: #fff;
+			}
+			.order-online{
+				position: absolute;
+				left: 70px;
+				top: 2140px;
+				z-index: -1;
+				height: 440px;
+				background: #fff;
+			}
+			.order-block{
+				position: absolute;
+				background: #fff;
+				width: 392px;
+				height: 137px;
+				left: 256px;
+				top: 224px;
+			}
+			div.message{
+				position: absolute;
+				left: 70px;
+				top: 2800px;
+				width: 940px;
+			    height: 110px;
+			}
+			.fixed-picture-bottom{
+				/*top:3000px z-index: -4;*/
+				width: 1060px;
+				height: 560px;
+				position: absolute;
+				left: 105px;
+				top: 2750px;
+				z-index: -4;
+			}
+			.clip{
+				position: absolute;
+				clip:rect(560px 560px 560px 560px);
+			}
+			.background_bottom{
+				position: absolute;
+				background-image: url("http://cs-server.usc.edu:45678/hw/hw3/images/image5.jpg");
+				background-repeat: no-repeat;
+				background-attachment: fixed;
+				background-position:105px,500px; 
+				left: 105px;
+				top: 2750px;
+				clip:rect(560px 560px 560px 560px); 
+			}
+			.public-footer{
+				position: absolute;
+				height: 200px;
+				width: 1060px;
+  				margin-top: 250px;
+  				padding-top: 10px;
+  				top: 3200px;
+  				background: #bc9b5d;
+			}
+			.public-footer .footer-col {
+  				width: 300px;
+  				float: right;
+  				margin-right: 100px;
+  				margin-top: 55px;
+  				font-size: 14px;
+  				color: #FFFFFF;
+  				line-height: 1.8;
+			}
+			p.title{
+				text-align: center;
+				padding-top:0px;
+				font-family:sans-serif;
+				font-size: 52px;
+				color: #bc9b5d;
+				font-weight: 120;
+				height: 30px;
+				width: 300px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			
+			/*.mybackground{
+				/*height: 2780px;
+				position: absolute;
+				background: #fff;
+				height: 2780px;
+				width: 1200px;
+				top: 800px;
+				z-index: -3;
+			}*/
+		</style>
+	</head>
+
+	<body>
+		<div class="box">
+		<!--header,address and Navigation-->
+		<div class="public-header">
+			<div class="public-container">
+				<p class="title" style="font-weight: 50px;">T H Y M E</p><br>
+				<hr style="position:absolute;top:105px;color: #e9e9e9; width: 1060px; ">
+				<ul class="navigation">
+	            	<li class="item">
+	            	<a href="page2.html#home" style="color: #bc9b5d" target="_Blank">Home</a>
+	          		</li>
+	          		<li class="item">
+	            	<a href="page2.html#our-vision" style="color: #605e5e" target="_Blank" >Our Vision</a>
+	          		</li>
+	          		<li class="item">
+	            	<a href="page2.html#menu" style="color: #605e5e" target="_Blank">Menu</a>
+	          		</li>
+	          		<li class="item">
+	            	<a href="page2.html#order-online" style="color: #605e5e" target="_Blank">Order Online</a>
+	          		</li>
+	          		<li class="item">
+	            	<a href="page2.html#contact-us" style="color: #605e5e" target="_Blank">Contact Us</a>
+	          		</li>
+	        	</ul>			
+					<p class="header-col">
+						332 Keawe Street<br>
+						Hilo, Hawaii 96720 
+					</p>
+			</div>	
+		</div>
+
+		<div style="background:url(http://cs-server.usc.edu:45678/hw/hw3/images/image6.jpg); position: absolute; background-position: -330px 100px;background-size:160% 120%;width:1060px; height:650px; background-repeat: no-repeat; background-attachment: fixed;z-index: -5 "> 	
+		</div>
+		<!--<div class="fixed-picture-top">
+			<img src="http://cs-server.usc.edu:45678/hw/hw3/images/image6.jpg">
+		</div>-->
+		<div class="menu-lefta">
+			<img src="http://cs-server.usc.edu:45678/hw/hw3/images/image3.jpg">
+		</div>
+		<div class="menu-leftb">
+			<img src="http://cs-server.usc.edu:45678/hw/hw3/images/image2.jpg">
+			<p class="menu-word-title">
+				Freshest Island<br>
+				food from local vendors
+			</p>
+			<p class="menu-word-content">
+				Supporting local economy and the<br>
+				environment. Gluten free items also<br>
+				available.		
+			</p>
+			<a href="page2.html#our-vision" class="link" target="_Blank"> Read More Here ></a>
+		</div>	
+		<div class="menu-righta">
+			<img src="http://cs-server.usc.edu:45678/hw/hw3/images/image1.jpg">
+			<p style="position: absolute;left: 0px;top:-390px;font-family:sans-serif;
+				font-size:12px;color: gray;"> OUR RESTAURANT</p>
+			<p style="position: absolute;left: 0px;top:-370px;font-family:'Libre Baskerville',serif;
+				font-style:italic;font-size:30px;color: #bc9b5d;font-weight: 580;"> Local fresh cuisine<br>for every one
+			</p>
+			<p style="position: absolute;left: 0px;top:-250px;line-height:20px;font-family:sans-serif;
+				font-size:14px;color: gray;"> Pineapples is a family-owned and operated<br>
+				restaurant, dedicated to providing island fresh<br>cuisine to the east side of the Big island. Our<br> restaurant is located in the historic Pineapple<br> building, located in the heart of downtown Hilo.
+			</p>
+			<a href="page2.html#our-vision" class="linkb" target="_Blank"> Read More Here ></a>
+		</div>
+		<div class="menu-rightb">
+			<img src="http://cs-server.usc.edu:45678/hw/hw3/images/image4.jpg">
+		</div>
+		<div class="order-online">
+			<img src="http://cs-server.usc.edu:45678/hw/hw3/images/image7.jpg">
+			<div class="order-block">
+				<p style="position: absolute;left: 120px;top:25px;font-family:sans-serif;
+				font-style:italic;font-size:12px;color: gray;"> GREEN JUST GOT FASTER!</p>
+				<a href="page2.html#order-online" class="linkc" target="_Blank"> Order Online </a>
+			</div>
+		</div>
+		<div class="message">
+			<p style="text-align:center;font-family:sans-serif;
+				font-style:italic;font-size:12px;color: gray;"> GoGreenMag.com </p>
+			<p style="text-align:center;font-family:'Libre Baskerville',serif;
+				font-style:italic;font-weight:580; font-size:30px;color: #bc9b5d;">
+				<q>Loved it. We walked in around 6:30 without reservations<br> and were seated.<br>
+				The coconut crusted ono was on special and perfect.</q>
+			</p>
+		</div>
+		<!-- the bottom picture-->
+		<!--<div class="fixed-picture-bottom">
+			<img src="http://cs-server.usc.edu:45678/hw/hw3/images/image5.jpg">
+		</div> -->
+		<div style="width:1060px;height:440px;background:url(http://cs-server.usc.edu:45678/hw/hw3/images/image5.jpg) no-repeat; position: absolute;background-position: 0px -200px;top:3020px;background-repeat: no-repeat; background-attachment: fixed; opacity: 0.8; "></div>
+		<div class="public-footer">
+			<div class="footer-col">
+          		<div>&copy;2017 by Pineapples Hilo Restaurant<br>pineappleshilo.com</div>
+        	</div>
+		</div>
+		<div class="mybackground"></div>
+	</div>	
+	</body>
+<html>
