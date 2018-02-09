@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HW4</title>
+	<style type="text/css">
+		body{
+			text-align: center;
+		}
+	</style>
+	<script type="text/javascript">
+		function viewJSON(urlname){
+			var errortype = 0;
+			var URL = urlname.URL.value;
+
+			if(URL == ''){
+				errortype = 1;
+				alert("Please input Json files!");
+				return 0;
+			}
+
+			function loadJSON(url){
+				if(window.XMLHttpRequest){
+					//code for IE7+,Firefox, Chrome, Opera, Safari
+					xmlhttp = new XMLHttpRequest();
+				}else{//code for IE5,6
+					xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+				}
+				xmlhttp.open("GET",url,false);
+				xmlhttp.send();
+				if(xmlhttp.status==404){
+					errortype=2;
+					alert("Json file does not exist!");
+				}//for server testing
+				jsonObj = JSON.parse(xmlhttp.responseText);
+				return jsonObj;
+			}
+
+			try{
+				jsonObj = loadJSON(URL);
+			}catch(loadingerror){
+				alert("Json file doesn't exist!");
+				exit();
+			}	
+
+			function generateHTML(jsonObj){
+				root = jsonObj.DocumentElement;
+				html_text="<html><head><title> JSON Parse Result </title></head><body>";
+				html_text+="<table border='2'>";
+				char = jsonObj.Mainline.Table.Header.Data;
+				html_text+="<tbody>";
+				html_text+="<tr>";
+				for(var i=0;i<char.length;i++){
+					header=char[i];
+					html_text+="<th>"+header+"</th>";
+				}
+				html_text+="</tr>";
+				info = jsonObj.Mainline.Table.Row;
+				x=100;y=50;
+				//for all the trucking companies
+				var test = Object.keys(jsonObj.Mainline.Table);
+				if(test.length == 1 ){
+					alert("No Trucking companies!");
+					exit();
+				}
+				for(i=0;i<info.length;i++){
+					truckinglist = info[i];
+					html_text+="<tr>";
+					var trucking_keys = Object.keys(truckinglist);
+					for(j=0;j<trucking_keys.length;j++){
+						index = trucking_keys[j];
+						if(j == 2){ //hub
+							html_text+="<td><ul>";
+							var hublistkey = Object.keys(truckinglist[index].Hub);
+								for(k=0;k<hublistkey.length;k++){
+									index2 = hublistkey[k];
+									temp = truckinglist[index].Hub[index2];
+									if (k == 0){
+									html_text+="<li><strong>"+temp+"</strong></li>";
+									}
+									else{
+									html_text+="<li>"+temp+"</li>";
+									}
+								}
+							html_text+="</td></ul>";
+						}
+						else if(j == 4){//website
+							html_text+="<td><a href='"+truckinglist[index]+"' target='_Blank'>"+truckinglist[index]+"</a></td>";
+						}
+						else if(j == 5){ //image
+							html_text += "<td><image src='"+truckinglist[index]+"' width='"+x+"' height='"+y+"'></td>";
+						}
+						else{
+							html_text += "<td>"+truckinglist[index]+"</td>";
+						}
+					}
+					html_text+="</tr>";
+				}
+				html_text += "</table>";
+				html_text += "</body></html>";
+			}
+			// if(window.ActiveXObject){//if IE, simply execute script(due to async prop).
+			// 	if(jsonObj.parseError.errorCode!=0){
+			// 		// var myErr = jsonObj.parseError;
+			// 		// generateError(jsonObj);
+			// 		// hWin = window.open("","error","height=300, width=340");
+			// 		// hWin.document.write(html_text);
+			// 	}else{ 
+			// 		generateHTML(jsonObj);
+			// 		hWin = window.open("","Assignment 4","height=800, width=600");
+			// 		hWin.document.write(html_text);
+			// 		}	
+			// 	}	
+			// 	else{
+			// 		jsonObj.onload = generateHTML(jsonObj);
+			// 		hWin = window.open("","Assignment 4","height=800, width=600");
+			// 		hWin.document.write(html_text);
+			// 	}
+			// 	hWin.document.close();
+			// }
+			jsonObj.onload = generateHTML(jsonObj);
+			hWin = window.open("","Assignment 4","scrollbars = yes","height=800, width=600");
+			hWin.document.write(html_text);
+			hWin.document.close();
+		}
+	</script>
+</head>
+<body>
+	<h2>Enter URL for Trucking list JSON File </h2> 
+	<form name="myform" method="POST" id="location">
+		<input type="text" name="URL" maxlength="255" size="25" value="truckinglist.json" />
+		<br />
+		<input type="button" name="submit" value="Submit Query" onClick="viewJSON(this.form)" />
+	</form>
+
+</body>
+</html>
